@@ -3,13 +3,13 @@ thanks [Abp.Dapper](https://github.com/aspnetboilerplate/aspnetboilerplate "Abp.
 
 ## how to use!
 1. DependsOn
-```csharp
+``` csharp
 [DependsOn(typeof(OrmDapperModule))]
 public class AbpZeroTemplateWebCoreModule : AbpModule
 ```
 2. init database connectionString
 open file Startup.cs
-```csharp
+``` csharp
  public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory){
     	app.UseOrmDapper(connectionString);
     }
@@ -18,7 +18,7 @@ open file Startup.cs
 
 
 
-```csharp
+``` csharp
 
 private readonly IDapperRepository<User, long> _useDapperRepository;
 //1 use sql 
@@ -33,3 +33,70 @@ using (var uow = _useDapperRepository.Begin())
 }
 
 ```
+
+
+# Abp.Extension.Background
+
+1. 引用dll
+``` csharp
+Install-Package Abp.Extension.Background
+
+```
+2. 添加任务类
+
+``` csharp
+public class TestTask : IHTask
+    {
+
+        public ILogger Logger { get; set; }
+        public TestTask()
+        {
+            Logger = IocManager.Instance.Resolve<ILogger>();
+        }
+
+        public void Run()
+        {
+            Logger.Debug("测试任务执行.............");
+        }
+
+        public string Cron()
+        {
+            return Hangfire.Cron.Minutely();
+        }
+    }
+```
+
+3. 注册任务类
+
+``` csharp 
+
+public override void PostInitialize()
+        {
+            
+            var queue = IocManager.Resolve<BackTaskQueue>();
+            queue.Add(typeof(TestTask).FullName, typeof(TestTask));
+
+        }
+
+```
+
+4. Host项目startUp 启用hangfire
+
+``` csharp
+//a. ConfigureServices方法
+services.AddHangfire(config =>
+            {                
+                config.UseMemoryStorage();
+            });
+//b.Configure方法
+app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new AbpHangfireAuthorizationFilter(AppPermissions.Pages_Administration_HangfireDashboard) }
+            });
+app.UseHangfireServer();
+
+app.RunHangfireTask();
+
+```
+
+Xugege19890911,.
