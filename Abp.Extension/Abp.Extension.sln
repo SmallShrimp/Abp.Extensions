@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abp.Extension.Orm.Dapper", "Abp.Extension.Orm.Dapper\Abp.Extension.Orm.Dapper.csproj", "{E311EB9F-BB09-4C8B-A9C1-C3522473B6E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Extension.Orm.Dapper", "Abp.Extension.Orm.Dapper\Abp.Extension.Orm.Dapper.csproj", "{E311EB9F-BB09-4C8B-A9C1-C3522473B6E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Extension.Background", "Abp.Extension.Background\Abp.Extension.Background.csproj", "{41BB2F2A-D4AA-4ECC-B2E4-A5918890FD93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{E311EB9F-BB09-4C8B-A9C1-C3522473B6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E311EB9F-BB09-4C8B-A9C1-C3522473B6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E311EB9F-BB09-4C8B-A9C1-C3522473B6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BB2F2A-D4AA-4ECC-B2E4-A5918890FD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BB2F2A-D4AA-4ECC-B2E4-A5918890FD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BB2F2A-D4AA-4ECC-B2E4-A5918890FD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BB2F2A-D4AA-4ECC-B2E4-A5918890FD93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A1DABCE-2E7A-4D5E-BAE9-DF4D50C1EB09}
 	EndGlobalSection
 EndGlobal
