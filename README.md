@@ -92,12 +92,12 @@ services.AddHangfire(config =>
                 config.UseMemoryStorage();
             });
 //b.Configure方法
-app.UseHangfireDashboard("/hangfire", new DashboardOptions
-            {
-                Authorization = new[] { new AbpHangfireAuthorizationFilter(AppPermissions.Pages_Administration_HangfireDashboard) }
-            });
+//app.UseHangfireDashboard("/hangfire", new DashboardOptions
+  //          {
+    //            Authorization = new[] { new AbpHangfireAuthorizationFilter(AppPermissions.Pages_Administration_HangfireDashboard) }
+      //      });
 app.UseHangfireServer();
-
+//****
 app.RunHangfireTask();
 
 ```
