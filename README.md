@@ -41,6 +41,7 @@ using (var uow = _useDapperRepository.Begin())
 ``` csharp
 Install-Package Abp.Extension.Background
 
+
 ```
 2. 添加任务类
 
@@ -69,7 +70,9 @@ public class TestTask : IHTask
 3. 注册任务类
 
 ``` csharp 
-
+//依赖
+[DependsOn(typeof(AbpBackgroundModule))]
+//注册
 public override void PostInitialize()
         {
             
