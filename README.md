@@ -35,7 +35,7 @@ using (var uow = _useDapperRepository.Begin())
 ```
 
 
-# Abp.Extension.Background
+# Abp.Extension.Background（推荐使用[官方实现](https://aspnetboilerplate.com/Pages/Documents/Background-Jobs-And-Workers)）
 
 1. 引用dll
 ``` csharp
