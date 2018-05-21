@@ -2,7 +2,7 @@
 thanks [Abp.Dapper](https://github.com/aspnetboilerplate/aspnetboilerplate "Abp.Dapper"),[Dapper](https://github.com/StackExchange/Dapper "Dapper"),[DapperExtensions](https://github.com/tmsmith/Dapper-Extensions "DapperExtensions")
 
 ## how to use!
-1. DependsOn
+1. DependsOn(不再建议使用，推荐[Dapper Integration](https://aspnetboilerplate.com/Pages/Documents/Dapper-Integration))
 ``` csharp
 [DependsOn(typeof(OrmDapperModule))]
 public class AbpZeroTemplateWebCoreModule : AbpModule
